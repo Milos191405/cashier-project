@@ -73,7 +73,7 @@ const basket = new Basket();
 
 //Welcome
 rl.question(
-  "Welcome to the coffee shop! Would you like to order? ",
+  "Welcome to the coffee shop! Would you like to order? (y/n) ",
   function (answer) {
     if (answer.toLowerCase() === "y") {
       console.log(
@@ -111,7 +111,7 @@ function orderDrink() {
           // Order more
 
           rl.question(
-            "Would you like to order anything else? (yes/no) ",
+            "Would you like to order anything else? (y/n) ",
             function (additionalOrder) {
               if (additionalOrder.toLowerCase() === "y") {
                 orderDrink();
