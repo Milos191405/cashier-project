@@ -57,15 +57,13 @@ class Basket {
     let totalItems = 0;
     let totalPrice = 0;
 
-    Object.values(this.items).forEach((item) => {
-      totalItems += item.quantity;
-      if (discount === "y") {
-        totalPrice += item.price * item.quantity * 0.9;
-      } else {
-        totalPrice += item.price * item.quantity;
-      }
-    });
+  const discountFactor = discount === "y" ? 0.9 : 1;
 
+  Object.values(this.items).forEach((item) => {
+    totalItems += item.quantity;
+    totalPrice += item.price * item.quantity * discountFactor;
+  });
+      
     console.log(`Total items ordered: ${totalItems}`);
     console.log(`Total price: ${totalPrice.toFixed(2)}€`);
   }
