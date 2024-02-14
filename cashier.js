@@ -57,13 +57,13 @@ class Basket {
     let totalItems = 0;
     let totalPrice = 0;
 
-  const discountFactor = discount === "y" ? 0.9 : 1;
+    const discountFactor = discount === "y" ? 0.9 : 1;
 
-  Object.values(this.items).forEach((item) => {
-    totalItems += item.quantity;
-    totalPrice += item.price * item.quantity * discountFactor;
-  });
-      
+    Object.values(this.items).forEach((item) => {
+      totalItems += item.quantity;
+      totalPrice += item.price * item.quantity * discountFactor;
+    });
+
     console.log(`Total items ordered: ${totalItems}`);
     console.log(`Total price: ${totalPrice.toFixed(2)}€`);
   }
@@ -91,7 +91,9 @@ rl.question(
 // Order
 function orderDrink() {
   rl.question("What would you like to drink? (Enter ID) ", function (id) {
-    const drink = products.find((product) => product.id === parseInt(id));
+    const drink = {
+      ...products.find((product) => product.id === parseInt(id)),
+    };
     if (drink) {
       // quantity
 
@@ -129,6 +131,7 @@ function orderDrink() {
                     } else {
                       basket.displayBasket();
                     }
+
                     rl.close();
                     console.log("Thank you! See you next time!");
                   }
