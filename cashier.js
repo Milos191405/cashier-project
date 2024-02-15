@@ -4,6 +4,7 @@
 
 
 
+const { log } = require("console");
 const readline = require("readline");
 const rl = readline.createInterface({
   input: process.stdin,
@@ -194,6 +195,8 @@ async function greetCustomer(state) {
       "Welcome to the coffee shop! Would you like to order? (y/n) ",
       treatAnswerToGreeting
     )
+
+    console.log("question was asked")
 
     function treatAnswerToGreeting(answer) {
       if (answerIsAffirmative(answer)) {
