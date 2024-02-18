@@ -94,7 +94,8 @@ function orderDrink() {
     const drink = {
       ...products.find((product) => product.id === parseInt(id)),
     };
-    if (drink) {
+    if (drink.id !== undefined) {
+      
       // quantity
 
       rl.question(
